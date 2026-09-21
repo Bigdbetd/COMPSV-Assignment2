@@ -1,0 +1,27 @@
+Design Memo
+
+My waitlist is implemented as a singly linked list made of Node objects. Each
+Node stores one customer's name and a next reference that points to the
+following customer. The LinkedList class manages those nodes. To add someone
+to the front, the program creates a node, points its next reference to the
+current first node, and makes the new node the head. To add someone to the end,
+the program starts at the head and follows next references until it reaches a
+node whose next value is None. The new node is connected there. To remove a
+customer, the program searches from the beginning. If the customer is first,
+the head moves to the second node. Otherwise, the previous node is connected
+to the node after the match, bypassing the removed node. The program removes
+the first matching name and reports when no match exists.
+
+The head is the list's entry point and always refers to the first customer. An
+empty list has a head value of None. Because every other node is reached by
+following links from the head, losing or incorrectly changing the head could
+make the entire list inaccessible. It must be updated whenever the first node
+is added or removed.
+
+A real engineer might create a custom linked structure when records are added
+and removed frequently, when the collection must grow dynamically, or when
+the application needs behavior that a standard container does not provide.
+Examples include priority waitlists, job schedulers, music queues, navigation
+histories, and systems that attach extra status or priority data to each node.
+Building the structure directly also gives the engineer precise control over
+how insertion, removal, and traversal behave.
